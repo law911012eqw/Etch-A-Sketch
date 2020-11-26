@@ -1,13 +1,31 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <title>Etch-A-Sketch</title>
-    <link href="main.css" rel="stylesheet" type="text/css" media="all"/>
-    <link href="reset.css" rel="stylesheet" type="text/css" media="all"/>
+    <link href="main.css" rel="stylesheet" type="text/css" media="all" />
+    <link href="reset.css" rel="stylesheet" type="text/css" media="all" />
 </head>
+
 <body>
-<div id="grid-container"></div>
+    <div id="settings">
+        <form id="gridByGrid">
+            <label for="pixelNum">Enter px by px:</label>
+            <section>
+                <input type="number" id="numRow" name="pixelRow" required title="Min: 8px and Max: 100px" min="8" max="100" placeholder="min: 8" />
+                <input type="number" id="numCol" name="pixelCol" required min="8" max="100" placeholder="max: 100"/>
+            </section>
+        </form>
+        <div id="containerSize>"></div>
+        <div id="clearButton">
+            <button id="btnClear">
+                <p>Clear</p>
+            </button>
+        </div>
+    </div>
+    <div id="grid-container"></div>
 </body>
 <script src="script.js"></script>
+
 </html>
