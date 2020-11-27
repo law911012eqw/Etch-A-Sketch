@@ -5,8 +5,15 @@
     --border-color: rgba(160,160,255,0.4);
 }
 /*global selectors*/ 
+*:focus{
+    outline: none;
+}
 body{
     font-family: "Source Sans Pro", sans-serif;
+    background: linear-gradient(45deg, rgba(13, 152, 104,.9), rgba(255,255,255,.1) 51%),
+    linear-gradient(135deg, rgba(13, 152, 104,.9), rgba(255,255,255,.1) 51%),
+    linear-gradient(225deg, rgba(13, 152, 104,.9), rgba(255,255,255,.1) 51%),
+    linear-gradient(315deg, rgba(13, 152, 104,.9), rgba(255,255,255,.1) 51%);
 }
 form {
     display: inline-block;
@@ -24,6 +31,7 @@ input{
     width: 50px;
     margin-right: 20px;
     -moz-appearance: textfield;
+    -webkit-appearance: textfield;
 }
 /* class toggles for js */
 .gridAdd{

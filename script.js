@@ -10,6 +10,7 @@ const btnToggleGrid = document.getElementById('btnToggleGrid');
 const gridNum = document.getElementById('gridByGrid');
 const minGrid = document.getElementById('numRow').min;
 const maxGrid = document.getElementById('numRow').max;
+const gridRange = document.getElementById('gridRange');
 /* generates and organizes box of div grids */
 function createGrids(maxR, maxC) {
     if (document.body.contains(document.getElementById('grid-container'))) {
@@ -19,13 +20,13 @@ function createGrids(maxR, maxC) {
     gridContainer.id = 'grid-container';
     gridContainer.setAttribute('style', 'display: flex; flex-wrap: wrap; width: 750px; height: 750px; border: 1px solid #678; margin: 0 auto;');
     document.body.append(gridContainer);
-
     let gridPer = 100 / maxR + "%"; //percentage variable
     for (let i = 0; i < (product = maxR * maxC); i++) {
         const grid = document.createElement('div');
         grid.className = "sketch_grid";
         grid.setAttribute('style', 'flex: 1; background: #fff;)'); //sets the style attribute
-        //grid.classList.toggle('gridAdd');
+        grid.classList.toggle('gridAdd');
+        document.getElementById('btnToggleGrid').textContent = 'Grid: On'
         gridContainer.appendChild(grid);
     }
 
@@ -80,5 +81,11 @@ gridNum.addEventListener('keypress', function (event) {
         }
     }
 });
+
+gridRange.addEventListener('onchange', function() {
+    numRows = parseInt(this.textContent);
+    numCols = parseInt(this.textContent);
+    createGrids(numRows, numCols);
+})
 
 document.addEventListener('DOMContentLoaded', createGrids(numRows, numCols));
