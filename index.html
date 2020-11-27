@@ -4,24 +4,32 @@
 <head>
     <meta charset="UTF-8">
     <title>Etch-A-Sketch</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300&display=swap" rel="stylesheet">
     <link href="main.css" rel="stylesheet" type="text/css" media="all" />
     <link href="reset.css" rel="stylesheet" type="text/css" media="all" />
 </head>
 
 <body>
     <div id="settings">
-        <form id="gridByGrid">
-            <label for="pixelNum">Enter px by px:</label>
-            <section>
-                <input type="number" id="numRow" name="pixelRow" required title="Min: 8px and Max: 100px" min="8" max="100" placeholder="min: 8" />
-                <input type="number" id="numCol" name="pixelCol" required min="8" max="100" placeholder="max: 100"/>
-            </section>
-        </form>
-        <div id="containerSize>"></div>
-        <div id="clearButton">
-            <button id="btnClear">
-                <p>Clear</p>
-            </button>
+        <div id="gridSetContainer">
+            <form id="gridByGrid">
+                <label for="pixelNum">Enter px by px:</label>
+                <section>
+                    <input type="number" id="numRow" name="pixelRow" autocomplete="off" required title="Min: 8px and Max: 100px" min="8"
+                        max="100" placeholder="min: 8" />
+                    <input type="number" id="numCol" name="pixelCol" autocomplete="off" required min="8" max="100"
+                        placeholder="max: 100" />
+                </section>
+            </form>
+        </div>
+
+        <div id="colorsContainer">
+            
+        </div>
+        <div id="buttonsContainer">
+            <button id="btnClear">Clear</button>
+            <button id="btnToggleGrid">Grid: Off</button>
         </div>
     </div>
     <div id="grid-container"></div>
