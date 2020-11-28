@@ -18,18 +18,16 @@ function createGrids(maxR, maxC) {
     }
     const gridContainer = document.createElement('div');
     gridContainer.id = 'grid-container';
-    gridContainer.setAttribute('style', 'display: flex; flex-wrap: wrap; width: 750px; height: 750px; border: 1px solid #678; margin: 0 auto;');
+    gridContainer.setAttribute('style', 'display: flex; flex-wrap: wrap; width: 750px; height: 750px; margin: 0 auto;');
     document.body.append(gridContainer);
     let gridPer = 100 / maxR + "%"; //percentage value for flex-basis
     for (let i = 0; i < (product = maxR * maxC); i++) {
         const grid = document.createElement('div');
         grid.className = "sketch_grid"; //adding a class to each grid
-        grid.setAttribute('style', `flex: 1; background: #fff; flex-basis: ${gridPer};)`); //sets the style attribute
+        grid.setAttribute('style', `background: #fff; flex-basis: ${gridPer};)`); //sets the style attribute
         document.getElementById('btnToggleGrid').textContent == 'Grid: On' ? grid.classList.toggle('gridAdd') : undefined; //generates grid inset shadow while creating grid if it is toggled on 
         gridContainer.appendChild(grid);
     }
-    //const sketchGrids = document.querySelectorAll('.sketch_grid');
-    //sketchGrids.forEach(el => el.style.flexBasis = gridPer); //It sets the number of grids relatively to the value of desired rows and columns
     fillColors(); //grids can be filled while it exists
     btnClick(); //buttons are functional if grid exists
 }
@@ -45,9 +43,9 @@ function removeGrids() {
 function applyColor() {
     if (btnRandomRGB.classList.contains('btnActive')) {
         let r = randomRGB();
-        this.style.background = `rgb(`+ r +',' + r + ',' + r + `)`;
+        this.style.backgroundColor = `rgb(`+ r +',' + r + ',' + r + `)`;
     }
-    else{ this.style.background = "black"; }
+    else{ this.style.backgroundColor = "black"; }
 }
 //generates random number to be used for rgb
 function randomRGB(){
