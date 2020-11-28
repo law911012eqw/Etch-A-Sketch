@@ -8,16 +8,18 @@
 *:focus{
     outline: none;
 }
-body{
+html{
     font-family: "Source Sans Pro", sans-serif;
-    background: linear-gradient(45deg, rgba(13, 152, 104,.9), rgba(255,255,255,.1) 51%),
-    linear-gradient(135deg, rgba(13, 152, 104,.9), rgba(255,255,255,.1) 51%),
-    linear-gradient(225deg, rgba(13, 152, 104,.9), rgba(255,255,255,.1) 51%),
-    linear-gradient(315deg, rgba(13, 152, 104,.9), rgba(255,255,255,.1) 51%);
+    background: -webkit-linear-gradient(45deg, rgba(13, 152, 104,.9), rgba(255,255,255,.1) 36%),
+    linear-gradient(135deg, rgba(13, 152, 104,.9), rgba(255,255,255,.1) 36%),
+    linear-gradient(225deg, rgba(13, 152, 104,.9), rgba(255,255,255,.1) 36%),
+    linear-gradient(315deg, rgba(13, 152, 104,.9), rgba(255,255,255,.1) 36%);
+    background-attachment: fixed;
 }
 form {
     display: inline-block;
     height: inherit;
+    justify-content: center;
     text-align: center; 
     background: var(--purple);
     margin: 0 auto;
@@ -38,6 +40,7 @@ input{
     box-shadow: inset 0 0 1px rgba(160,160,255,0.5);
 }
 #gridSetContainer{
+    text-align: center;
     height: inherit;
 }
 #settings{
@@ -54,13 +57,14 @@ input{
     background: rgba(255, 255,255, 0.1);
 }
 #buttonsContainer{
+    position: relative;
     display: flex;
     flex-wrap: wrap;
-    flex-flow: column;
+    flex-flow: column wrap;
     height: inherit;
-    /*background: rgb(177, 35, 35);*/
 }
 #buttonsContainer > button{
+    position: relative;
     flex-basis: 50%;
     cursor: pointer;
     color: #fff;
