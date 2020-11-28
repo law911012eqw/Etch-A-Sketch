@@ -24,12 +24,12 @@ function createGrids(maxR, maxC) {
     for (let i = 0; i < (product = maxR * maxC); i++) {
         const grid = document.createElement('div');
         grid.className = "sketch_grid"; //adding a class to each grid
-        grid.setAttribute('style', 'flex: 1; background: #fff;)'); //sets the style attribute
+        grid.setAttribute('style', `flex: 1; background: #fff; flex-basis: ${gridPer};)`); //sets the style attribute
         document.getElementById('btnToggleGrid').textContent == 'Grid: On' ? grid.classList.toggle('gridAdd') : undefined; //generates grid inset shadow while creating grid if it is toggled on 
         gridContainer.appendChild(grid);
     }
-    const sketchGrids = document.querySelectorAll('.sketch_grid');
-    sketchGrids.forEach(el => el.style.flexBasis = gridPer); //It sets the number of grids relatively to the value of desired rows and columns
+    //const sketchGrids = document.querySelectorAll('.sketch_grid');
+    //sketchGrids.forEach(el => el.style.flexBasis = gridPer); //It sets the number of grids relatively to the value of desired rows and columns
     fillColors(); //grids can be filled while it exists
     btnClick(); //buttons are functional if grid exists
 }
@@ -83,7 +83,7 @@ function btnClick() {
             }
         });
     });
-    if (btnRandomRGB.onclick = (e) => {
+    if (btnRandomRGB.onclick = () => {
         btnRandomRGB.classList.toggle('btnActive');
     });
 }
