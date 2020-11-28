@@ -14,24 +14,25 @@
     <div id="settings">
         <div id="gridSetContainer">
             <form id="gridByGrid">
-                <label for="pixelNum">Enter px by px:</label>
-                <section>
-                    <input type="number" id="numRow" name="pixelRow" autocomplete="off" required title="Min: 8px and Max: 100px" min="8"
-                        max="100" placeholder="min: 8" />
-                    <input type="number" id="numCol" name="pixelCol" autocomplete="off" required min="8" max="100"
-                        placeholder="max: 100" />
-                </section>
-                <input type="range" min="8" max="100" autocomplete="off" class="slider" id="gridRange"/>
+                <label for="pixelNum">
+                    <p>Enter px by px:</p>
+                </label>
+                <input type="number" id="numRow" name="pixelRow" autocomplete="off" required
+                    title="Min: 8px and Max: 100px" min="8" max="100" />
+                <input type="number" id="numCol" name="pixelCol" autocomplete="off" required
+                    title="Min: 8px and Max: 100px" min="8" max="100" />
+
+                <div><input type="range" min="8" max="100" autocomplete="off" class="slider" id="gridRange" /></div>
             </form>
         </div>
 
         <div id="colorsContainer">
-            
+
         </div>
         <div id="buttonsContainer">
             <button id="btnClear">Clear</button>
             <button id="btnToggleGrid">Grid: Off</button>
-            <button id="randomRGB">RGB 10%</button>
+            <button id="randomRGB">255 B&W</button>
         </div>
     </div>
     <div id="grid-container"></div>

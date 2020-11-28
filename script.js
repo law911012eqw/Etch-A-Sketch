@@ -10,7 +10,7 @@ const gridNum = document.getElementById('gridByGrid');
 const minGrid = document.getElementById('numRow').min;
 const maxGrid = document.getElementById('numRow').max;
 const gridRange = document.getElementById('gridRange');
-
+const btnRandomRGB = document.getElementById('randomRGB');
 /* generates and organizes box of div grids */
 function createGrids(maxR, maxC) {
     if (document.body.contains(document.getElementById('grid-container'))) {
@@ -43,9 +43,19 @@ function removeGrids() {
 }
 //apply certain background color
 function applyColor() {
-    this.style.background = "black";
+    if (btnRandomRGB.classList.contains('btnActive')) {
+        let r = randomRGB();
+        this.style.background = `rgb(`+ r +',' + r + ',' + r + `)`;
+    }
+    else{ this.style.background = "black"; }
 }
-
+//generates random number to be used for rgb
+function randomRGB(){
+    let max= 255;
+    let min = 0;
+    let rBW = Math.floor(Math.random() * (max-min+1)+min);
+    return rBW;
+}
 //calls the applyColor when the div is targeted with mouseenter
 function fillColors() {
     const sketchGrids = document.querySelectorAll('.sketch_grid');
@@ -63,8 +73,18 @@ function btnClick() {
     if (btnToggleGrid.onclick = () => {
         sketchGrids.forEach(el => {
             el.classList.toggle('gridAdd');
-            el.classList.contains('gridAdd') ? document.getElementById('btnToggleGrid').textContent = 'Grid: On' : document.getElementById('btnToggleGrid').textContent = 'Grid: Off';
+            if (el.classList.contains('gridAdd')) {
+                btnToggleGrid.textContent = 'Grid: On';
+                btnToggleGrid.classList.add('btnActive');
+            }
+            else {
+                document.getElementById('btnToggleGrid').textContent = 'Grid: Off';
+                btnToggleGrid.classList.remove('btnActive');
+            }
         });
+    });
+    if (btnRandomRGB.onclick = (e) => {
+        btnRandomRGB.classList.toggle('btnActive');
     });
 }
 
