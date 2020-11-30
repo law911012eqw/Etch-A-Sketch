@@ -11,6 +11,7 @@ const minGrid = document.getElementById('numRow').min;
 const maxGrid = document.getElementById('numRow').max;
 const gridRange = document.getElementById('gridRange');
 const btnRandomRGB = document.getElementById('randomRGB');
+const btnRandomColors = document.getElementById('randomColors');
 /* generates and organizes box of div grids */
 function createGrids(maxR, maxC) {
     if (document.body.contains(document.getElementById('grid-container'))) {
@@ -34,9 +35,8 @@ function createGrids(maxR, maxC) {
 //remove the sketchpad to overwrite a new sets of grid
 function removeGrids() {
     const gridContainer = document.getElementById('grid-container');
-    while (gridContainer.firstChild) {
-        gridContainer.removeChild(gridContainer.lastChild);
-    }
+    while (gridContainer.firstChild) 
+        gridContainer.removeChild(gridContainer.lastChild); 
     document.getElementById('grid-container').remove();
 }
 //apply certain background color
@@ -45,14 +45,16 @@ function applyColor() {
         let r = randomRGB();
         this.style.backgroundColor = `rgb(`+ r +',' + r + ',' + r + `)`;
     }
+    else if (btnRandomColors.classList.contains('btnActive')){
+        this.style.backgroundColor = `rgb(`+ randomRGB() +',' + randomRGB() + ',' + randomRGB() + `)`;
+    }
     else{ this.style.backgroundColor = "black"; }
 }
 //generates random number to be used for rgb
 function randomRGB(){
-    let max= 255;
+    let max = 255;
     let min = 0;
-    let rBW = Math.floor(Math.random() * (max-min+1)+min);
-    return rBW;
+    return rBW = Math.floor(Math.random() * (max-min+1)+min);
 }
 //calls the applyColor when the div is targeted with mouseenter
 function fillColors() {
@@ -64,11 +66,11 @@ function fillColors() {
 function btnClick() {
     const sketchGrids = document.querySelectorAll('.sketch_grid');
     //clear grid to default color
-    if (btnClear.onclick = () => {
-        sketchGrids.forEach(el => el.style.background = '#fff');
-    });
+    btnClear.onclick = () => {
+        sketchGrids.forEach(el => el.style.backgroundColor = '#fff');
+    };
     //toggle grid on|off
-    if (btnToggleGrid.onclick = () => {
+    btnToggleGrid.onclick = () => {
         sketchGrids.forEach(el => {
             el.classList.toggle('gridAdd');
             if (el.classList.contains('gridAdd')) {
@@ -80,10 +82,17 @@ function btnClick() {
                 btnToggleGrid.classList.remove('btnActive');
             }
         });
-    });
-    if (btnRandomRGB.onclick = () => {
+    };
+    //random black and white colors
+    btnRandomRGB.onclick = () => {
         btnRandomRGB.classList.toggle('btnActive');
-    });
+        btnRandomColors.classList.remove('btnActive')
+    }
+    //generates random colors 
+    btnRandomColors.onclick = () => {
+        btnRandomColors.classList.toggle('btnActive');
+        btnRandomRGB.classList.remove('btnActive');
+    }
 }
 
 //Checks if both grid by grid input is empty and within the acceptable 
