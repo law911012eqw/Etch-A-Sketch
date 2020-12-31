@@ -98,7 +98,7 @@ function btnClick() {
 //Checks if both grid by grid input is empty and within the acceptable 
 //then creates a new sets of grid relatively to the input entered by user
 gridNum.addEventListener('keypress', function (event) {
-    if (event.keyCode == 13) {
+    if (event.key == 'Enter') {
         event.preventDefault();
         numRows = document.getElementById('numRow').value;
         numCols = document.getElementById('numCol').value;
@@ -108,6 +108,7 @@ gridNum.addEventListener('keypress', function (event) {
         }
     }
 });
+
 //slider that inputs value as the x = number of grids (x by x)
 gridRange.addEventListener('change', function () {
     document.getElementById('numRow').value = parseInt(this.value);
